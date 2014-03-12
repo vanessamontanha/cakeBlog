@@ -36,6 +36,7 @@
                     'Edit', array('action' => 'edit', $post['Post']['id'])
                 );
             ?>
+
         </td>
         <td>
             <?php echo $post['Post']['created']; ?>
