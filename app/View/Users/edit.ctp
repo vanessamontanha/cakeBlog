@@ -1,11 +1,24 @@
-<!-- File: /app/View/Users/edit.ctp -->
+<div class="users form">
+<?php echo $this->Form->create('User', array('type' => 'file')); ?>
+	<fieldset>
+		<legend><?php echo __('Edit User'); ?></legend>
+	<?php
+		echo $this->Form->input('id');
+		echo $this->Form->input('username');
+		echo $this->Form->input('password');
+                echo $this->Form->input('role');
+                echo $this->Form->input('user_picture', array('type' => 'file'));
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
 
-<h1>Edit User</h1>
-<?php
-echo $this->Form->create('User'); // create edit form in User model to send to database
-echo $this->Form->input('username'); 
-echo $this->Form->input('password', array('rows' => '2'));
-echo $this->Form->input('role');
-echo $this->Form->input('id', array('type' => 'hidden'));
-echo $this->Form->end('Save Post');
-?>
+		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Posts'), array('controller' => 'posts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Post'), array('controller' => 'posts', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
