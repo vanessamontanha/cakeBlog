@@ -17,28 +17,38 @@
 	?>
 </head>
 <body>
-<div class="posts form">
-<?php echo $this->Form->create('Post'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Post'); ?></legend>
-	<?php
-		echo $this->Form->input('title');
-		echo $this->Form->input('body');
-		echo $this->Form->input('user_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="container">
+<div class="panel panel-warning">    
+<div class="panel-heading"><p class="main">
+<?php echo $this->Form->create('Post',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
+   
+    
+     <div class="panel-body"><p class="main">
+              <div class="container">
+<div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('title',array('class'=>'form-control'));?></h3>
+            </div></div>                  
+<div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Body</label></p>
+            <div class="col-sm-10">
+                <?php echo $this->Form->textarea('body',array('class'=>'form-control','rows'=>5));?>
+            </div>
+          </div>
+                   <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Author</label>
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('user_id',array('class'=>'form-control'));?></h3>
+            </div></div>
+	
+<p class="date"><div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <?php echo $this->Form->submit(__('Create'),array('class'=>'btn btn-primary'))?></p>
+            </div>
+          </div>
+              </div>
 
-		<li><?php echo $this->Html->link(__('List Posts'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
  </body>
     <!-- Bootstrap core JavaScript

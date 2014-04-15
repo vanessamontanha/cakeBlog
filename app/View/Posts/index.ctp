@@ -28,10 +28,12 @@
 	<div class="panel panel-danger">
   <div class="panel-heading">
 		<h3 class="panel-title"><?php echo h($post['Post']['title']); ?>&nbsp;</h3>
+               <p class="date"><span class="glyphicon glyphicon-time">
+  <?php echo h($post['Post']['created']); ?>&nbsp;</span></p>
   </div>
             <div class="panel-body">
                 <div class="container">
-                    <p class="date"> <?php echo h($post['Post']['created']); ?>&nbsp;</p>
+                    
                     <p class="main"><?php echo h($post['Post']['body']); ?>&nbsp;</p>
                    
                     
@@ -42,10 +44,10 @@
   </div>
             <div class="panel-footer">
                 <td class="actions">
+                    <li><?php echo $this->Html->link(__('Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Add new comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
                     
-                    <p><?php echo $this->Html->link(__('View'), array('action' => 'view', $post['Post']['id'])); ?></p>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?>
+                   
 		</td>
                 
             
@@ -56,7 +58,7 @@
 
 		
 		
-	</tr>
+	
 <?php endforeach; ?>
 	
 	
@@ -71,12 +73,13 @@
            
         </div>	
             
-	<?php
-                        echo $this->element('paginator');
-                        ?>
-
-	</div>
+	
 </div>
+       <p class="centra"> <?php
+                        echo $this->element('paginator');
+                        ?></p>
+
+	
     
 
     </body>

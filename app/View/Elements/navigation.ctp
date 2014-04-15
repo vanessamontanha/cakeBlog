@@ -37,6 +37,7 @@
           <ul class="nav navbar-nav navbar-right">
               <li> <?php echo $this->Html->link(__('About'),array('controller'=>'posts','action'=>'add'))?></li>
               <li> <?php echo $this->Html->link(__('Contact'),array('controller'=>'contacts','action'=>'index'))?></li>
+
               <li><?php echo $this->Html->link(__('New Post'),array('controller'=>'posts','action'=>'add'))?></li>   
             <?php if(!$this->Session->check('Auth.User')):?>
             <li><?php echo $this->Html->link(__('Login'),array('controller'=>'users','action'=>'login'))?></li>

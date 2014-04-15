@@ -17,12 +17,14 @@
 	?>
 </head>
 <body>
+    
 <ul class="pagination pagination-sm">
-    <?php
+   <p class="centra"> <?php
         echo $this->Paginator->prev('&larr; ' . __('previous'), array('tag' => 'li', 'escape' => false), null, array('tag' => 'li', 'class' => 'disabled', 'escape' => false));
         echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active'));
         echo $this->Paginator->next(__('next') . ' &rarr;', array('tag' => 'li', 'escape' => false), null, array('tag' => 'li', 'class' => 'disabled', 'escape' => false));
-    ?>
+    ?></p>
+
 </ul>
     
     </div>
