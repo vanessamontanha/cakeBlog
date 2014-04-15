@@ -18,15 +18,21 @@
 </head>
 <body>
 
-    <div class="row users form">
+    <div class="users form">
         <div class="col-lg-6 col-lg-offset-3">
              
-                <h2>Login</h2>
+                
            
-                <div class="well">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Login</h3>
+                   </div>
+                    <div class="panel-body">
+                            
+                                 
                      <?php echo $this->Session->flash('auth'); ?>
                     <?php echo $this->Form->create('User',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?>
                  <div class="form-group">
+                     
                             <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
                             <div class="col-sm-10">
                               <?php echo $this->Form->input('username',array('class'=>'form-control'));?>
@@ -41,10 +47,12 @@
                           
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <?php echo $this->Form->submit('Login',array('class'=>'btn btn-primary'))?>
+                              <?php echo $this->Form->submit('Login',array('class'=>'btn btn-info'))?>
                             </div>
                           </div>
                     <?php echo $this->Form->end();?>
+                              </div>
+                              </div>
                 </div>
           </div>
 </div>

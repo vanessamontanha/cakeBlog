@@ -45,27 +45,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			
 		</div>
     <div id="content">
-        <?php if(AuthComponent::user()){
-            echo 'Welcome '.AuthComponent::user('username');
-            echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout'));
-            }
-                    else{
-                            echo $this->Html->link('Login',
-            array('controller'=>'users', 'action' => 'login'));
-            }
-        ?>
+      <div id="container"> 
 
         <?php echo $this->Session->flash(); ?>
 
     <?php<?php echo $this->fetch('content'); ?>
-</div>
+      </div></div>
     <div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			
 		</div>
 	</div>
 <!-- Bootstrap core JavaScript
