@@ -17,21 +17,23 @@
 	?>
 </head>
 <body>
-<div class="container">
+
 <?php $this->Html->script('contact', array('block' => 'scriptBottom')); ?>
 
  
              
                 
            
-                <div class="panel panel-warning">
+                <div class="container">
+    <div class="panel panel-warning">
                     <div class="panel-heading">Contact</h3>
+                    </div>
                    
-
+<div class="panel-body">
+    
 <?php echo $this->Form->create('Contact',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
 <div class="form-group"></div>
-<div class="panel-body">
-    <div class="container">
+
 <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
@@ -58,6 +60,7 @@
               <?php echo $this->Form->submit(__('Send'),array('class'=>'btn btn-primary'))?></p>
             </div>  </div>
 </div>
+        </div>
 
 
 

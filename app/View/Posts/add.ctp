@@ -17,7 +17,7 @@
 	?>
 </head>
 <body>
-<div class="container">
+
 <div class="panel panel-warning">    
 <div class="panel-heading"><p class="main">
 <?php echo $this->Form->create('Post',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
@@ -47,7 +47,7 @@
               <?php echo $this->Form->submit(__('Create'),array('class'=>'btn btn-primary'))?></p>
             </div>
           </div>
-              </div>
+              </div></div>
 
 </div>
  </body>

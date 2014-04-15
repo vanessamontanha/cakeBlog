@@ -40,10 +40,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     
      <?php echo $this->element('navigation');?>
     
-	<div id="container">
+	
 		<div id="header">
-			
-		</div>
+                    <div id="container">
+                    
+                    
+	
+  
+                    <p class="bg-warning"><?php echo $this->Html->image('logo.png', $options = array());?></p>
+  
+                    </div>
+                    </div>
     <div id="content">
       <div id="container"> 
 
@@ -51,10 +58,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
     <?php<?php echo $this->fetch('content'); ?>
       </div></div>
-    <div id="footer">
-			
-		</div>
-	</div>
+   
 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

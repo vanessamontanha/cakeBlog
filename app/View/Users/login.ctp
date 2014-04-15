@@ -17,13 +17,8 @@
 	?>
 </head>
 <body>
-
-    <div class="users form">
-        <div class="col-lg-6 col-lg-offset-3">
-             
-                
-           
-                <div class="panel panel-warning">
+    <div class="container">
+    <div class="panel panel-warning">
                     <div class="panel-heading">Login</h3>
                    </div>
                     <div class="panel-body">
@@ -54,10 +49,8 @@
                               </div>
                               </div>
                 </div>
-          </div>
-</div>
+          
 
-</div>
   </body>
     <!-- Bootstrap core JavaScript
     ================================================== -->

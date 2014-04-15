@@ -20,7 +20,7 @@ and open the template in the editor.
 body {
   
           padding-top: 70px;
-          background: url('../img/background.png') repeat-y;
+          background: url('../img/back6.png') repeat;
         
 }
 
@@ -83,6 +83,15 @@ p.centra {
     
     text-align:center;
 }
+p.bg-warning {
+    
+width:95%;
+padding:0px;
+border:4px solid gray;
+margin:80px;
+text-align: center;
+    
+}
 
 
 /** Layout **/
@@ -91,7 +100,11 @@ p.centra {
 }
 
 #header{
-	padding: 10px 20px;
+        
+	
+        
+        width:92%;
+        padding: 10px 20px 40px 20px;
 }
 #header h1 {
 	line-height:20px;
@@ -180,20 +193,30 @@ div.actions h3 {
 table {
 	border-right:0;
 	clear: both;
-	color: #333;
+	border:1px solid green;
 	margin-bottom: 10px;
-	width: 100%;
+	width: 50%;
 }
 th {
 	border:0;
 	border-bottom:2px solid #555;
 	text-align: left;
 	padding:4px;
+        background-color:gray;
+        color:pink;
+       
+        
+}
+td{
+    border:1px solid gray;
+    background-color:black;
+    color:violet;
 }
 th a {
 	display: block;
 	padding: 2px 4px;
 	text-decoration: none;
+        
 }
 th a.asc:after {
 	content: ' ⇣';
@@ -311,7 +334,7 @@ text-align: center;
 }
 .form-group{
    
-    width: 885px;
+    
     
 }
                 
