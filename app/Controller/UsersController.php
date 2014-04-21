@@ -115,16 +115,10 @@ public function logout() {
  * been identified as POST, a message will be displayed to the user asking him
  * to try again.
  */
-    public function add() {
+     public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
-            $data = $this->request->data['User'];
-                if(!$data['user_picture']['name']) {
-                    unset($data['user_picture']);
-                    
-                }
-            
-            if ($this->User->save($data)) {
+            if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 return $this->redirect(array('action' => 'index'));
             }

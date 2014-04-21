@@ -26,7 +26,7 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
                 echo $this->Form->input('role');
-                echo $this->Form->input('user_picture', array('type' => 'file'));
+               
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

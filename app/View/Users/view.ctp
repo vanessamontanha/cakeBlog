@@ -47,15 +47,7 @@
 			&nbsp;
 		</dd>
                
-                <dt><?php echo __('User Picture'); ?></dt>
-		<dd>
-			<?php if ($user['User']['user_picture']) {
-                        echo $this->Html->image($user['User']['user_picture']);
-                    }
-                    ?>
-			&nbsp;
-		</dd>
-	
+                
 	</dl>
 </div>
 <div class="actions">

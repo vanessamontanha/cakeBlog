@@ -43,13 +43,7 @@
                                                               
             </div>
           </div>
-<div class="form-group">
-    <label for="exampleInputFile" class="col-sm-2 control-label">Picture</label>
-    <div class="col-sm-10">
-               <?php echo $this->Form->input('image', array('type' => 'file', 'id'=> 'user_picture'));?>
-         <p class="help-block">Max Size 100MB</p>
-  </div>
-    </div>           
+
    
    <p class="date"><div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

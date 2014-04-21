@@ -43,13 +43,15 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	
 		<div id="header">
                     <div id="container">
+                        
                     
                     
 	
   
                     <p class="bg-warning"><?php echo $this->Html->image('logo.png', $options = array());?></p>
+                    
   
-                    </div>
+                        </div>
                     </div>
     <div id="content">
       <div id="container"> 
