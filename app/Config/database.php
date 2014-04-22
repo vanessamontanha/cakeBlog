@@ -61,7 +61,7 @@
  */
 class DATABASE_CONFIG {
 
-    
+    /*
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
@@ -72,19 +72,18 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
-     
-/*
+     */
+
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'eu-cdbr-azure-north-c.cloudapp.net',
-		'login' => 'bb50ac7654bb62',
-		'password' => '3d883a70',
-		'database' => 'superfaApRd1ZBEn',
+		'login' => 'b40438bcf2d2c8',
+		'password' => '236622d3',
+		'database' => 'superfaA7cwrJCyy',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
-     * 
-     */
+     
 }
 
