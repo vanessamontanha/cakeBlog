@@ -17,7 +17,7 @@
 	?>
 </head>
 <body>
-<div class="container">
+
 <div class="panel panel-warning">    
     <div class="panel-heading">Add User </h3></div>
     

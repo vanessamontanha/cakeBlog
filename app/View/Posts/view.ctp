@@ -17,50 +17,27 @@
 	?>
 </head>
 <body>
-<div class="posts view">
-
-	
-    
-		<div class="panel panel-default">
+<div class="container">
+	<div class="panel panel-danger">
   <div class="panel-heading">
-    <h2 class="panel-title"
+		<h3 class="panel-title"><?php echo h($post['Post']['title']); ?>&nbsp;</h3>
+               <p class="date"><span class="glyphicon glyphicon-time">
+  <?php echo h($post['Post']['created']); ?>&nbsp;</span></p>
+  </div>
+            <div class="panel-body">
+                <div class="container">
+                    
+                    <p class="main"><?php echo h($post['Post']['body']); ?>&nbsp;</p>
+                   
+                    
+                    
 		
-		<?php echo __('Title'); ?>
-		
-			<?php echo h($post['Post']['title']); ?>
-			</h2></div>
-                        
-                        <div class="panel-body">
-                         <dt><?php echo __('Body'); ?></dt>
-		<dd>
-			<?php echo h($post['Post']['body']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($post['Post']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($post['Post']['modified']); ?>
-			&nbsp;
-		</dd>
-                                  </div>
-                                </div>
-		
-		
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($post['User']['username'], array('controller' => 'users', 'action' => 'view', $post['User']['username'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Post'), array('action' => 'edit', $post['Post']['id'])); ?> </li>
+                    <p class="author"><span class="glyphicon glyphicon-user">
+<?php echo $this->Html->link($post['User']['username'], array('controller' => 'users', 'action' => 'view', $post['User']['username'])); ?></span></p>
+  </div>
+            <div class="panel-footer">
+               
+                   <li><?php echo $this->Html->link(__('Edit Post'), array('action' => 'edit', $post['Post']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Post'), array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Posts'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Post'), array('action' => 'add')); ?> </li>
@@ -68,10 +45,23 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-	</ul>
+            
+                    
+                   
+		</td
+                
+            
+        </div>
 </div>
+</div>
+</div>
+
+		
+		
+</div>
+
 <div class="related">
-	<h3><?php echo __('Related Comments'); ?></h3>
+	
 	<?php if (!empty($post['Comment'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -92,8 +82,7 @@
 			<td><?php echo $comment['created']; ?></td>
 			<td><?php echo $comment['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'comments', 'action' => 'view', $comment['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comments', 'action' => 'edit', $comment['id'])); ?>
+				
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comments', 'action' => 'delete', $comment['id']), null, __('Are you sure you want to delete # %s?', $comment['id'])); ?>
 			</td>
 		</tr>
@@ -101,11 +90,7 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
+	
 </div>
 </body>
     <!-- Bootstrap core JavaScript

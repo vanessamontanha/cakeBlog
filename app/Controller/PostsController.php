@@ -95,14 +95,17 @@ class PostsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Post->create();
 			if ($this->Post->save($this->request->data)) {
-				$this->Session->setFlash(__('The post has been saved.'));
+				//$this->Session->setFlash(__('The post has been saved.'));
+                            $this->Session->setFlash($message,'flash',array('alert'=>'info'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
+                            $this->Session->setFlash($message,'error',array('alert'=>'info'));
+				//$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
 			}
 		}
 		$users = $this->Post->User->find('list');
 		$this->set(compact('users'));
+                
 	}
 
 /*
@@ -121,10 +124,10 @@ class PostsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Post->save($this->request->data)) {
-				$this->Session->setFlash(__('The post has been saved.'));
+				$this->Session->setFlash($message,'flash',array('alert'=>'info'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
+				$this->Session->setFlash($message,'error',array('alert'=>'info'));
 			}
 		} else {
 			$options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));

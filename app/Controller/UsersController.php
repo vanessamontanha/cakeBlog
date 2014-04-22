@@ -64,7 +64,7 @@ class UsersController extends AppController {
         if ($this->Auth->login()) {
             return $this->redirect($this->Auth->redirect());
         }
-        $this->Session->setFlash(__('Invalid username or password, try again'));
+        $this->Session->setFlash($message,'error',array('alert'=>'info'));
     }
 }
 
@@ -119,12 +119,10 @@ public function logout() {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
+                $this->Session->setFlash($message,'flashuser',array('alert'=>'info'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
-            );
+            $this->Session->setFlash($message,'error',array('alert'=>'info'));
         }
     }
 
@@ -154,12 +152,10 @@ public function logout() {
                 }
             
             if ($this->User->save($data)) {
-                $this->Session->setFlash(__('The user has been saved'));
+                $this->Session->setFlash($message,'flashuser',array('alert'=>'info'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
-            );
+            $this->Session->setFlash($message,'error',array('alert'=>'info'));
         } else {
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);

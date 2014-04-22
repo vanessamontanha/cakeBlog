@@ -19,7 +19,7 @@
 <body>
 
 <div class="panel panel-warning">    
-<div class="panel-heading"><p class="main">
+    <div class="panel-heading">New Post </h3></div>
 <?php echo $this->Form->create('Post',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
    
     
@@ -36,11 +36,7 @@
                 <?php echo $this->Form->textarea('body',array('class'=>'form-control','rows'=>5));?>
             </div>
           </div>
-                   <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Author</label>
-            <div class="col-sm-10">
-               <?php echo $this->Form->input('user_id',array('class'=>'form-control'));?></h3>
-            </div></div>
+                   
 	
 <p class="date"><div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

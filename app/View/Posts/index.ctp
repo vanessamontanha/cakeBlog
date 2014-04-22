@@ -44,11 +44,16 @@
   </div>
             <div class="panel-footer">
                 <td class="actions">
-                    <li><?php echo $this->Html->link(__('Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
+                   
 		<li><?php echo $this->Html->link(__('Add new comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+                <li> <?php
+                echo $this->Html->link(__('Manage Post'),
+                    array('action' => 'view', $post['Post']['id'])); ?></li>
+                
+            
                     
                    
-		</td>
+		
                 
             
         </div>
@@ -61,10 +66,16 @@
 	
 <?php endforeach; ?>
 	
-	
+	<div class ="container">
+	<div class="pull-right">
+            <?php
+                echo $this->element('paginator');
+            ?>
+         </div>
+
 	<div class="paging">
             
-	<div class="alert alert-success"><?php
+	<div class="alert alert-success img-responsive pull-left"><?php
 	echo $this->Paginator->counter(array(
 	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
@@ -75,14 +86,10 @@
             
 	
 </div>
-       <p class="centra"> <?php
-                        echo $this->element('paginator');
-                        ?></p>
-
 	
-    
+</div>
 
-    </body>
+  </body>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

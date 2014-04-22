@@ -23,8 +23,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
+		Super Fantastisch
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -34,6 +33,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+                
 	?>
 </head>
 <body>
@@ -45,11 +45,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
                     <div id="container">
                         
                     
-                    
+                       
+                        <div class="img-responsive"><?php echo $this->Html->image('logo.png', $options = array());?></div>
 	
   
-                    <p class="bg-warning"><?php echo $this->Html->image('logo.png', $options = array());?></p>
-                    
+                      
   
                         </div>
                     </div>

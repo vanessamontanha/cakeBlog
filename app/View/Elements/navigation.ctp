@@ -50,7 +50,13 @@
                     <?php echo $this->Html->link(__('New Post'),array('controller'=>'posts','action'=>'add'))?>
                  </li>
                  <li>
+                    <?php echo $this->Html->link(__('Edit Posts'),array('controller'=>'posts','action'=>'edit'))?>
+                 </li>
+                 <li>
                     <?php echo $this->Html->link(__('New User'),array('controller'=>'users','action'=>'add'))?>
+                 </li>
+                 <li>
+                    <?php echo $this->Html->link(__('View Users'),array('controller'=>'users','action'=>'index'))?>
                  </li>
                  <li>
                     <?php echo $this->Html->link(__('Log Out'),array('controller'=>'users','action'=>'logout'))?>
