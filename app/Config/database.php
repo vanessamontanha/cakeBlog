@@ -75,15 +75,6 @@ class DATABASE_CONFIG {
         * 
  */
 
-	public $default = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'eu-cdbr-azure-north-c.cloudapp.net',
-		'login' => 'b7e4ec0697b692',
-		'password' => 'a42884c8',
-		'database' => 'chesusAVOkNkZ0Kz',
-		'prefix' => '',
-		//'encoding' => 'utf8',
-	);
+	
  
 }
