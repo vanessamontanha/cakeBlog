@@ -60,7 +60,7 @@
  * For Sql Server : http://msdn.microsoft.com/en-us/library/ms190356.aspx
  */
 class DATABASE_CONFIG {
-
+/*
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
@@ -71,17 +71,19 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	); 
-/*
+        
+        * 
+ */
+
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'eu-cdbr-azure-north-c.cloudapp.net',
-		'login' => 'bd7948ddc5b2bd',
-		'password' => '52113ed6',
-		'database' => 'sevenwoAPwTaXire',
+		'login' => 'b7e4ec0697b692',
+		'password' => 'a42884c8',
+		'database' => 'chesusAVOkNkZ0Kz',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
- * 
- */
+ 
 }
