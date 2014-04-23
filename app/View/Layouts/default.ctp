@@ -11,6 +11,7 @@
         echo $this->Html->css('bootstrap.min.css');
         echo $this->Html->css('custom');
         
+        
  
         echo $this->fetch('meta');
         echo $this->fetch('css');
@@ -53,6 +54,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <?php echo $this->Html->script('bootstrap.min'); ?>   
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<?php echo $this->fetch('scriptBottom'); ?>
 	
 </body>
