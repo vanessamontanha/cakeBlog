@@ -17,30 +17,50 @@
 	?>
 </head>
 <body>
-<div class="users form">
-<?php echo $this->Form->create('User', array('type' => 'file')); ?>
-	<fieldset>
-		<legend><?php echo __('Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-                echo $this->Form->input('role');
-               
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+    
+<div class="panel panel-warning">    
+    <div class="panel-heading">Edit User </h3></div>
+    
+   <div class="panel-body">
+<?php echo $this->Form->create('User',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
+   <div class="form-group"></div>
+   
+   <div class="form-group">
+              
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('id', array('type' => 'hidden', 'class'=>'form-control'));?></h3>
+            </div></div>   
+    
+<div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('username',array('class'=>'form-control'));?></h3>
+            </div></div>   
+<div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('password',array('class'=>'form-control'));?></h3>
+            </div></div>
+ <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Role</label>
+            <div class="col-sm-10">
+    
+                      <?php echo $this->Form->input('role',array('options'=>array('admin' => 'Admin', 'author' => 'Author'), 'class'=>'form-control'));?>
+                                                              
+            </div>
+          </div>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Posts'), array('controller' => 'posts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Post'), array('controller' => 'posts', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+   
+   <p class="date"><div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <?php echo $this->Form->submit(__('Save'),array('class'=>'btn btn-primary'))?></p>
+            
+            
+            </div>  </div>
+    
+   </div> </div>
+
+
   </body>
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -48,3 +68,5 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
    <?php echo $this->Html->script('bootstrap.min'); ?> 
 </html>
+
+

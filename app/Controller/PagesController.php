@@ -37,7 +37,6 @@ class PagesController extends AppController {
  */
 	public $uses = array();
 
-
 /**
  * Displays a view
  *
@@ -45,16 +44,7 @@ class PagesController extends AppController {
  * @return void
  * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
- *
- *
  */
-	
-	public function isAuthorized($user) {
-
-    	return parent::isAuthorized($user);
-	}
-	
-	
 	public function display() {
 		$path = func_get_args();
 
@@ -85,4 +75,3 @@ class PagesController extends AppController {
 		}
 	}
 }
-?>

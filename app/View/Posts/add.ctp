@@ -19,12 +19,12 @@
 <body>
 
 <div class="panel panel-warning">    
-    <div class="panel-heading">New Post </h3></div>
+    <div class="panel-heading">Add Post </h3></div>
 <?php echo $this->Form->create('Post',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
    
     
      <div class="panel-body"><p class="main">
-              <div class="container">
+             
 <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-10">
@@ -33,19 +33,24 @@
 <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Body</label></p>
             <div class="col-sm-10">
-                <?php echo $this->Form->textarea('body',array('class'=>'form-control','rows'=>5));?>
+                <?php echo $this->Form->textarea('body',array('class'=>'form-control','rows'=>3));?>
             </div>
           </div>
+<p class="pull-left"><div class="form-group">
+             
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('id',array('type' => 'hidden', 'class'=>'form-control'));?></p>
+            </div></div>                                    
                    
 	
 <p class="date"><div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <?php echo $this->Form->submit(__('Create'),array('class'=>'btn btn-primary'))?></p>
+              <?php echo $this->Form->submit(__('Save'),array('class'=>'btn btn-primary'))?></p>
             </div>
           </div>
               </div></div>
 
-</div>
+
  </body>
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -1,15 +1,32 @@
 <?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 App::uses('AppController', 'Controller');
 
-class PostsController extends AppController {
-
 /**
- * Helpers
+ * CakePHP PostsController
+ * @author Vanessa
  */
-	public $helpers = array('Session', 'Html', 'Form');
+
+/* The PostsController is automatically linked to the Post Model
+ * and posts table in the database. It also extends the parent class 
+ * AppController
+ */
+class PostsController extends AppController { 
+
+public $helpers = array('Session', 'Html', 'Form');
 
 
-	public $components = array('Paginator', 'Session');
+public $components = array('Paginator', 'Session');
+   
+   
+   
+   
 /*
  * The isAuthorized() method in the PostsController is overriding the one we
  * defined in the AppController. It will first see if the parent class in the 
@@ -18,9 +35,8 @@ class PostsController extends AppController {
  * he is the owner of the post, delete and edit it. The second bit is done by 
  * using the isOwnedBy() method that will be talking to the Model specified in 
  * "$this->Post". 
- */        
-        
-        public function isAuthorized($user) {
+ */
+ public function isAuthorized($user) {
      // All registered users can add posts
      if ($this->action === 'add') {
          return true;
@@ -33,12 +49,11 @@ class PostsController extends AppController {
          if ($this->Post->isOwnedBy($postId, $user['id'])) {
             return true;
          }
+         
      }
 
      return parent::isAuthorized($user);
 }
-
-
 /* The index function will make it possible to users to access the logic
  * contained inside the action by calling www.example.com/posts/index, in this
  * case they will be presented a list of posts. It is doing so by using set()
@@ -48,11 +63,11 @@ class PostsController extends AppController {
  * them in a View called 'posts'.
  * 
  */
-	public function index() {
-		$this->Post->recursive = 0;
-		$this->set('posts', $this->Paginator->paginate());
-	}
-
+ 
+    public function index() {
+        $this->set('posts', $this->Post->find('all'));
+    }
+    
 /*
  * In this function we are handing a parameter $id to the action. If a user
  * requests a /posts/view/5 the $id value will be 5. If the user has not 
@@ -64,15 +79,21 @@ class PostsController extends AppController {
  * specified in $this->Post for the specific post that contains the requested id 
  * and will present it to the user in the View (view.ctp). The set() method is 
  * again passing the data from the PostsController to the 'post' View.
- */ 
-	public function view($id = null) {
-		if (!$this->Post->exists($id)) {
-			throw new NotFoundException(__('Invalid post'));
-		}
-		$options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));
-		$this->set('post', $this->Post->find('first', $options));
-	}
+ */    
+    
+    
+    public function view($id = null) {
+        if (!$id) {
+            throw new NotFoundException(__('Invalid post'));
+        }
 
+        $post = $this->Post->findById($id);
+        if (!$post) {
+            throw new NotFoundException(__('Invalid post'));
+        }
+        $this->set('post', $post);
+    }
+    
 /*
  * The add() action checks to see if the request method matches the one 
  * specified in $this->request->us('post'). You could use any other request 
@@ -91,23 +112,18 @@ class PostsController extends AppController {
  * added to return the ID of the user who is currently logged in. 
  */    
     
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Post->create();
-			if ($this->Post->save($this->request->data)) {
-				//$this->Session->setFlash(__('The post has been saved.'));
-                            $this->Session->setFlash($message,'flash',array('alert'=>'info'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-                            $this->Session->setFlash($message,'error',array('alert'=>'info'));
-				//$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
-			}
-		}
-		$users = $this->Post->User->find('list');
-		$this->set(compact('users'));
-                
-	}
-
+     public function add() {
+        if ($this->request->is('post')) {
+            $this->Post->create();
+            $this->request->data['Post']['user_id'] = $this->Auth->user('id');
+            if ($this->Post->save($this->request->data)) {
+                $this->Session->setFlash(__('Your post has been saved.'));
+                return $this->redirect(array('action' => 'index'));
+            }
+            $this->Session->setFlash(__('Unable to add your post.'));
+        }
+    }
+    
 /*
  * The edit() action first determines if the user has tried to access an
  * existing record. If an error has occurred during this request, such as
@@ -117,25 +133,32 @@ class PostsController extends AppController {
  * via POST. A flash message will be shown letting the user know that the 
  * post has been updated. If it came with another type of request, it will
  * show a flash message saying we were unable to update your post.
- */ 
-	public function edit($id = null) {
-		if (!$this->Post->exists($id)) {
-			throw new NotFoundException(__('Invalid post'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Post->save($this->request->data)) {
-				$this->Session->setFlash($message,'flash',array('alert'=>'info'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash($message,'error',array('alert'=>'info'));
-			}
-		} else {
-			$options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));
-			$this->request->data = $this->Post->find('first', $options);
-		}
-		$users = $this->Post->User->find('list');
-		$this->set(compact('users'));
-	}
+ */    
+    
+    
+    public function edit($id = null) {
+    if (!$id) {
+        throw new NotFoundException(__('Invalid post'));
+    }
+
+    $post = $this->Post->findById($id);
+    if (!$post) {
+        throw new NotFoundException(__('Invalid post'));
+    }
+
+    if ($this->request->is(array('post', 'put'))) {
+        $this->Post->id = $id;
+        if ($this->Post->save($this->request->data)) {
+            $this->Session->setFlash(__('Your post has been updated.'));
+            return $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('Unable to update your post.'));
+    }
+
+    if (!$this->request->data) {
+        $this->request->data = $post;
+    }
+}
 
 /*
  * The delete() action deletes the post that corresponds to the specified $id. 
@@ -144,16 +167,26 @@ class PostsController extends AppController {
  * know if the deletion has been sucessful or not by showing a flash message
  * and redirects the user to the index action. 
  */
-	public function delete($id = null) {
-		$this->Post->id = $id;
-		if (!$this->Post->exists()) {
-			throw new NotFoundException(__('Invalid post'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Post->delete()) {
-			$this->Session->setFlash(__('The post has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The post could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}}
+
+
+public function delete($id) {
+    if ($this->request->is('get')) {
+        throw new MethodNotAllowedException();
+    }
+
+    if ($this->Post->delete($id)) {
+        $this->Session->setFlash(
+            __('The post with id: %s has been deleted.', h($id))
+        );
+        return $this->redirect(array('action' => 'index'));
+    }
+}
+
+
+    
+
+}
+
+
+
+

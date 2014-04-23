@@ -61,29 +61,25 @@
  */
 class DATABASE_CONFIG {
 
-    /*
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'cake_blog_tutorial',
+		'database' => 'testdb',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
-     */
 
-	public $default = array(
+	public $test = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'eu-cdbr-azure-north-c.cloudapp.net',
-		'login' => 'b40438bcf2d2c8',
-		'password' => '236622d3',
-		'database' => 'superfaA7cwrJCyy',
+		'host' => 'localhost',
+		'login' => 'user',
+		'password' => 'password',
+		'database' => 'test_database_name',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
-     
 }
-

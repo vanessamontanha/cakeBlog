@@ -149,7 +149,7 @@
  *	`manager_index()` and `/manager/controller/index`
  *
  */
-	//Configure::write('Routing.prefixes', array('admin'));
+Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -222,12 +222,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUVANwvniR2G0FgaC9mi');
+	Configure::write('Security.salt', 'DYhG93bIUJJfIxfs2guVoUubWwvniR2G0FgaC9mi');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '76859309657455552496749683645');
+	Configure::write('Security.cipherSeed', '768593096574535424967232249683645');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -275,7 +275,7 @@
  * then the value of `Config.timezone` will be used. This feature allows you to set users' timezone just
  * once instead of passing it each time in function calls.
  */
-	//Configure::write('Config.timezone', 'Europe/Paris')
+	//Configure::write('Config.timezone', 'Europe/Paris');
 
 /**
  *

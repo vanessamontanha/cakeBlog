@@ -1,3 +1,17 @@
+<!-- File: /app/View/Posts/edit.ctp -->
+<!-- We are creating our edit View and customising it  
+with a mix of PHP and HTML tags.
+When we don't inform any parameters with our Form Helper, CakePHP will assume
+that the form being built is sent via POST to the current controller's add()
+action. $this->Form->input() method creates the form elements based on the model
+specified. $this->Form->end() creates a button and will also end the form. 
+The button can be named in the brackets. Since we have specified an id field in 
+the data array, cakePHP will assume that we are editing a model and not creating
+a new one.
+
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,50 +31,41 @@
 	?>
 </head>
 <body>
-   
-    <div class="panel panel-warning">    
+
+<div class="panel panel-warning">    
     <div class="panel-heading">Edit Post </h3></div>
 <?php echo $this->Form->create('Post',array('class'=>'form-horizontal','inputDefaults'=>array('label'=>false)));?></p>
    
     
-     <div class="panel-body">
-              <div class="container">
+     <div class="panel-body"><p class="main">
+             
 <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-10">
                <?php echo $this->Form->input('title',array('class'=>'form-control'));?></h3>
             </div></div>                  
 <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Body</label>
+            <label for="inputPassword3" class="col-sm-2 control-label">Body</label></p>
             <div class="col-sm-10">
-                <?php echo $this->Form->textarea('body',array('class'=>'form-control','rows'=>5));?>
+                <?php echo $this->Form->textarea('body',array('class'=>'form-control','rows'=>3));?>
             </div>
           </div>
+<p class="pull-left"><div class="form-group">
+             
+            <div class="col-sm-10">
+               <?php echo $this->Form->input('id',array('type' => 'hidden', 'class'=>'form-control'));?></p>
+            </div></div>                                    
                    
 	
 <p class="date"><div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <?php echo $this->Form->submit(__('Create'),array('class'=>'btn btn-primary'))?></p>
+              <?php echo $this->Form->submit(__('Save'),array('class'=>'btn btn-primary'))?></p>
             </div>
           </div>
               </div></div>
 
-</div>
-    <div class="panel-footer">
-      <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Post.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Post.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Posts'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-    </div>
 
-       
-                
-            
-                    
-                   
-		
-
-    </body>
+ </body>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

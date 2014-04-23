@@ -40,12 +40,12 @@
                     
 		
                     <p class="author"><span class="glyphicon glyphicon-user">
-<?php echo $this->Html->link($post['User']['username'], array('controller' => 'users', 'action' => 'view', $post['User']['username'])); ?></span></p>
+<?php echo $this->Html->link($post['User']['username'], array('controller' => 'users', 'action' => 'view', $post['User']['id'])); ?></span></p>
   </div>
             <div class="panel-footer">
                 <td class="actions">
                    
-		<li><?php echo $this->Html->link(__('Add new comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+		
                 <li> <?php
                 echo $this->Html->link(__('Manage Post'),
                     array('action' => 'view', $post['Post']['id'])); ?></li>
@@ -66,28 +66,11 @@
 	
 <?php endforeach; ?>
 	
-	<div class ="container">
-	<div class="pull-right">
-            <?php
-                echo $this->element('paginator');
-            ?>
-         </div>
+	
+            
+	
 
-	<div class="paging">
-            
-	<div class="alert alert-success img-responsive pull-left"><?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-        ?>
-             
-           
-        </div>	
-            
 	
-</div>
-	
-</div>
 
   </body>
     <!-- Bootstrap core JavaScript

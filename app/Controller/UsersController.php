@@ -16,11 +16,17 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
     
-    	public $helpers = array('Html', 'Form', 'Session');
-        public $components = array('Session', 'Paginator');
+    	public $helpers = array('Session', 'Html', 'Form');
+
+
+	public $components = array('Paginator', 'Session');
+        
+      
         
         
         
+        
+    
 /**
  * Auth is a component of CakePHP that will allow us to specify which functions
  * are allowed to the User.
@@ -30,27 +36,6 @@ class UsersController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow('add', 'login', 'logout');
     }
-        
-        
-/**Uses the configured Authorization adapters to check whether
-*or not a user is authorized. Each adapter will be checked in
-*sequence, if any of them return true, then the user will be
-*authorized for the request.
-*/
-    public function isAuthorized($user){
-
-    if (isset($user['role']) && $user['role'] === 'admin') {
-    return true;
-    }	
-
-        if(in_array($this->action, array('edit', 'delete'))){
-        if($user['id'] != $this->request->params['pass'][0]){
-            return false;
-            }
-        }
-            return true;
-            }        
-    
     
 /**
  * The login function is checking if the data came through a POST request
@@ -64,7 +49,7 @@ class UsersController extends AppController {
         if ($this->Auth->login()) {
             return $this->redirect($this->Auth->redirect());
         }
-        $this->Session->setFlash($message,'error',array('alert'=>'info'));
+        $this->Session->setFlash(__('Invalid username or password, try again'));
     }
 }
 
@@ -115,14 +100,16 @@ public function logout() {
  * been identified as POST, a message will be displayed to the user asking him
  * to try again.
  */
-     public function add() {
+    public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash($message,'flashuser',array('alert'=>'info'));
+                $this->Session->setFlash(__('The user has been saved'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash($message,'error',array('alert'=>'info'));
+            $this->Session->setFlash(
+                __('The user could not be saved. Please, try again.')
+            );
         }
     }
 
@@ -145,17 +132,13 @@ public function logout() {
             throw new NotFoundException(__('Invalid user'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            $data = $this->request->data['User'];
-                if(!$data['user_picture']['name']) {
-                    unset($data['user_picture']);
-                    
-                }
-            
-            if ($this->User->save($data)) {
-                $this->Session->setFlash($message,'flashuser',array('alert'=>'info'));
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash($message,'error',array('alert'=>'info'));
+            $this->Session->setFlash(
+                __('The user could not be saved. Please, try again.')
+            );
         } else {
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
