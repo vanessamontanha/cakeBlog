@@ -70,16 +70,18 @@ class DATABASE_CONFIG {
 		'database' => 'testdb',
 		'prefix' => '',
 		//'encoding' => 'utf8',
-	);
-
-	public $test = array(
+	); 
+/*
+	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'host' => 'eu-cdbr-azure-north-c.cloudapp.net',
+		'login' => 'bd7948ddc5b2bd',
+		'password' => '52113ed6',
+		'database' => 'sevenwoAPwTaXire',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
+ * 
+ */
 }
